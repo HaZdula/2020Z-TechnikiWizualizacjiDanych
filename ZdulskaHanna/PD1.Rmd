@@ -45,6 +45,7 @@ cali_p <- cali_poly[6]
 start_here <- 0
 end_here <- 0
 x2 <- data.frame(x = 1, y = 1)
+#caution: this will take time! intersect isnt cheap
 for (j in seq(32.53416, 41, 0.1)){
   for (i in seq(-124.4096, -114.1391, 0.01)){
     p <- 
@@ -65,6 +66,7 @@ for (j in seq(32.53416, 41, 0.1)){
 x <- x2[-1,]
 
 # get elevation (z coord) from elevatr
+# catution: this will take time - data is retrived for every point
 elev2 <- get_elev_point(x[,1:2], "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs", "aws")
 x$elev <- elev2$elevation
 
